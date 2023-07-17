@@ -24,6 +24,9 @@
     <Filter Include="Button">
       <UniqueIdentifier>{27b95854-4ff0-4daf-a304-c41ca2bfdb8b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="FlareWidget">
+      <UniqueIdentifier>{d7c702b9-8252-4879-baee-38d5fae529e3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="flare_global.h">
@@ -43,22 +46,33 @@
     <ClCompile Include="PushButton.cpp">
       <Filter>Button</Filter>
     </ClCompile>
-    <ClCompile Include="FlareWindow.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="IconButton.cpp">
       <Filter>Button</Filter>
+    </ClCompile>
+    <ClCompile Include="FlareWindow.cpp">
+      <Filter>FlareWidget</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget.cpp">
+      <Filter>FlareWidget</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="PushButton.h">
       <Filter>Button</Filter>
     </QtMoc>
-    <QtMoc Include="FlareWindow.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
     <QtMoc Include="IconButton.h">
       <Filter>Button</Filter>
     </QtMoc>
+    <QtMoc Include="FlareWindow.h">
+      <Filter>FlareWidget</Filter>
+    </QtMoc>
+    <QtMoc Include="Widget.h">
+      <Filter>FlareWidget</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="FlareWindow.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
   </ItemGroup>
 </Project>

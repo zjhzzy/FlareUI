@@ -19,11 +19,11 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
@@ -110,11 +110,16 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PushButton.cpp" />
     <ClCompile Include="FlareWindow.cpp" />
+    <ClCompile Include="Widget.cpp" />
     <ClInclude Include="FlareColor.h" />
     <ClInclude Include="flare_global.h" />
+    <QtMoc Include="Widget.h" />
     <QtMoc Include="IconButton.h" />
     <QtMoc Include="FlareWindow.h" />
     <QtMoc Include="PushButton.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="FlareWindow.qrc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

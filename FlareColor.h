@@ -4,6 +4,8 @@
 #include <QColor>
 #include "flare_global.h"
 
+typedef float_t f32;
+
 struct FLARE_EXPORT FlareColor {
 	static const QColor BlueLight;
 	static const QColor BlueDark;

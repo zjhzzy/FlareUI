@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/">
+        <file>image/closebutton.png</file>
+        <file>image/closebutton-hover.png</file>
+        <file>image/maxbutton.png</file>
+        <file>image/maxbutton-hover.png</file>
+        <file>image/minibutton.png</file>
+        <file>image/minibutton-hover.png</file>
+        <file>image/restorebutton.png</file>
+        <file>image/restorebutton-hover.png</file>
+    </qresource>
+</RCC>
