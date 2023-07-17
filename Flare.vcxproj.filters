@@ -29,17 +29,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="flare_global.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FlareColor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="FlareColor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -57,22 +46,33 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="PushButton.h">
+    <QtRcc Include="FlareWindow.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="include\IconButton.h">
       <Filter>Button</Filter>
     </QtMoc>
-    <QtMoc Include="IconButton.h">
+    <QtMoc Include="include\PushButton.h">
       <Filter>Button</Filter>
     </QtMoc>
-    <QtMoc Include="FlareWindow.h">
+    <QtMoc Include="include\FlareWindow.h">
       <Filter>FlareWidget</Filter>
     </QtMoc>
-    <QtMoc Include="Widget.h">
+    <QtMoc Include="include\Widget.h">
       <Filter>FlareWidget</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>
-    <QtRcc Include="FlareWindow.qrc">
-      <Filter>Resource Files</Filter>
-    </QtRcc>
+    <ClInclude Include="include\flare_global.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\FlareColor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

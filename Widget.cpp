@@ -1,6 +1,6 @@
 #include "Widget.h"
 
-void Widget::paintEvent(QPaintEvent* Event) {
+void Flare::Widget::paintEvent(QPaintEvent* Event) {
 	QPainter painter(this);
 	painter.setPen(WidgetColor());
 	painter.setBrush(WidgetColor());
@@ -9,61 +9,61 @@ void Widget::paintEvent(QPaintEvent* Event) {
 	painter.end();
 }
 
-void Widget::enterEvent(QEnterEvent* Event) {
+void Flare::Widget::enterEvent(QEnterEvent* Event) {
 	QWidget::enterEvent(Event);
 	isAbove = true;
 }
 
-void Widget::leaveEvent(QEvent* Event) {
+void Flare::Widget::leaveEvent(QEvent* Event) {
 	QWidget::leaveEvent(Event);
 	isAbove = false;
 }
 
-void Widget::mousePressEvent(QMouseEvent* Event) {
+void Flare::Widget::mousePressEvent(QMouseEvent* Event) {
 	QWidget::mousePressEvent(Event);
 	emit press(Event->pos());
 }
 
-void Widget::mouseReleaseEvent(QMouseEvent* Event) {
+void Flare::Widget::mouseReleaseEvent(QMouseEvent* Event) {
 	QWidget::mouseReleaseEvent(Event);
 	emit release();
 }
 
-Widget::Widget(QWidget *parent)
+Flare::Widget::Widget(QWidget *parent)
 	: QWidget(parent),WidgetBackColor(new QColor(FlareColor::White)){
 	xRadius = 0;
 	yRadius = 0;
 	isAbove = false;
 }
 
-Widget::~Widget()
+Flare::Widget::~Widget()
 {}
 
-f32 Widget::XRadius() {
+f32 Flare::Widget::XRadius() {
 	return xRadius;
 }
 
-f32 Widget::YRadius() {
+f32 Flare::Widget::YRadius() {
 	return yRadius;
 }
 
-QColor Widget::WidgetColor() {
+QColor Flare::Widget::WidgetColor() {
 	return *WidgetBackColor;
 }
 
-void Widget::setxRadius(f32 Radius) {
+void Flare::Widget::setxRadius(f32 Radius) {
 	xRadius = Radius;
 }
 
-void Widget::setyRadius(f32 Radius) {
+void Flare::Widget::setyRadius(f32 Radius) {
 	yRadius = Radius;
 }
 
-void Widget::setRadius(f32 XRadius, f32 YRadius) {
+void Flare::Widget::setRadius(f32 XRadius, f32 YRadius) {
 	xRadius = XRadius;
 	yRadius = YRadius;
 }
 
-void Widget::setWidgetColor(const QColor& color) {
+void Flare::Widget::setWidgetColor(const QColor& color) {
 	*WidgetBackColor = color;
 }

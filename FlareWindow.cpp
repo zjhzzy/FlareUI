@@ -41,6 +41,7 @@ Flare::FlareWindow::FlareWindow(QWidget* parent)
 	EnlargeButton->setColor(Flare::IconButton::Color().setAllColor(FlareColor::White));
 	HideButton->setColor(Flare::IconButton::Color().setAllColor(FlareColor::White));
 	widgetMove();
+	Title->setWidgetColor(FlareColor::Grey6);
 	Title->move(0, 1);
 	Background->move(0, Title->y() + Title->height());
 	Background->resize(width(), height() - Title->height());
