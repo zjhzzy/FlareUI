@@ -117,6 +117,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BaseButton.cpp" />
     <ClCompile Include="FlareColor.cpp" />
     <ClCompile Include="IconButton.cpp" />
     <ClCompile Include="PushButton.cpp" />
@@ -142,6 +143,7 @@
     <QtMoc Include="include\Widget.h" />
   </ItemGroup>
   <ItemGroup>
+    <QtMoc Include="include\BaseButton.h" />
     <ClInclude Include="include\FlareColor.h" />
     <ClInclude Include="include\flare_global.h" />
   </ItemGroup>

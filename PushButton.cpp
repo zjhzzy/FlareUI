@@ -2,28 +2,28 @@
 
 void Flare::PushButton::paintEvent(QPaintEvent* Event) {
 	QPainter painter(this);
-	if (isAbove) {
+	if (IsAbove()) {
 		painter.setPen(*buttonHoverColor);
 		painter.setBrush(*buttonHoverColor);
 	} else {
 		painter.setPen(*buttonColor);
 		painter.setBrush(*buttonColor);
 	}
-	if (isPress) {
+	if (IsPress()) {
 		painter.setPen(*buttonPressedColor);
 		painter.setBrush(*buttonPressedColor);
 	}
 	painter.setRenderHint(QPainter::Antialiasing, true);
 	painter.drawRoundedRect(1.5, 1.5, width() - 1.5, height() - 1.5, XRadius(), YRadius());
 	painter.setFont(font());
-	if (isAbove) {
+	if (IsAbove()) {
 		painter.setPen(*buttonTextHoverColor);
 		painter.setBrush(*buttonTextHoverColor);
 	} else {
 		painter.setPen(*buttonTextColor);
 		painter.setBrush(*buttonTextColor);
 	}
-	if (isPress) {
+	if (IsPress()) {
 		painter.setPen(*buttonTextPressedColor);
 		painter.setBrush(*buttonTextPressedColor);
 	}
@@ -31,29 +31,6 @@ void Flare::PushButton::paintEvent(QPaintEvent* Event) {
 	painter.drawText((width() / 2) - (painter.fontMetrics().horizontalAdvance(text()) / 2),
 		(height() / 2) + (painter.fontMetrics().height() / 2) - 1, text());
 	painter.end();
-}
-
-void Flare::PushButton::enterEvent(QEnterEvent* Event) {
-	QAbstractButton::enterEvent(Event);
-	isAbove = true;
-	update();
-}
-
-void Flare::PushButton::leaveEvent(QEvent* Event) {
-	QAbstractButton::leaveEvent(Event);
-	isAbove = false;
-	update();
-}
-
-void Flare::PushButton::connectSlot() {
-	connect(this, &PushButton::pressed, this, [&]() {
-		isPress = true;
-		update();
-		});
-	connect(this, &PushButton::released, this, [&]() {
-		isPress = false;
-		update();
-		});
 }
 
 QColor Flare::PushButton::ButtonColor() const {
@@ -79,14 +56,6 @@ QColor Flare::PushButton::ButtonTextHoverColor() const {
 
 QColor Flare::PushButton::ButtonTextPressedColor() const {
 	return *buttonTextPressedColor;
-}
-
-f32 Flare::PushButton::XRadius() {
-	return xRadius;
-}
-
-f32 Flare::PushButton::YRadius() {
-	return yRadius;
 }
 
 void Flare::PushButton::setButtonColor(const QColor& color) {
@@ -123,33 +92,15 @@ void Flare::PushButton::setColor(const Color& color) {
 	*buttonTextPressedColor = color.buttonTextPressedColor;
 }
 
-void Flare::PushButton::setxRadius(f32 Radius) {
-	xRadius = Radius;
-}
-
-void Flare::PushButton::setyRadius(f32 Radius) {
-	yRadius = Radius;
-}
-
-void Flare::PushButton::setRadius(f32 XRadius, f32 YRadius) {
-	setxRadius(XRadius);
-	setyRadius(YRadius);
-}
-
 
 Flare::PushButton::PushButton(QWidget* parent)
-	: QAbstractButton(parent),
-	isAbove(false),
-	isPress(false),
-	xRadius(0),
-	yRadius(0),
+	: BaseButton(parent),
 	buttonColor(new QColor(FlareColor::BlueLight)),
 	buttonHoverColor(new QColor(FlareColor::BlueLight)),
 	buttonPressedColor(new QColor(FlareColor::Black)),
 	buttonTextColor(new QColor(FlareColor::White)),
 	buttonTextHoverColor(new QColor(FlareColor::White)),
 	buttonTextPressedColor(new QColor(FlareColor::White)) {
-	connectSlot();
 }
 
 Flare::PushButton::PushButton(const QString& text, QWidget* parent) : PushButton(parent) {

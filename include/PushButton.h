@@ -1,6 +1,6 @@
 #ifndef FLARE_PUSH_BUTTON_H
 #define FLARE_PUSH_BUTTON_H
-#include <QPushButton>
+#include "BaseButton.h"
 #include <QString>
 #include <QPainter>
 #include "FlareColor.h"
@@ -9,7 +9,7 @@
 typedef float_t f32;
 
 namespace Flare {
-	class FLARE_EXPORT PushButton : public QAbstractButton {
+	class FLARE_EXPORT PushButton : public BaseButton {
 		Q_OBJECT
 	private:
 		QColor* buttonColor;
@@ -18,18 +18,9 @@ namespace Flare {
 		QColor* buttonTextColor;
 		QColor* buttonTextHoverColor;
 		QColor* buttonTextPressedColor;
-		bool isAbove;
-		bool isPress;
-		f32 xRadius;
-		f32 yRadius;
-		void setIcon();
-		QIcon icon();
 		
 	protected:
 		void paintEvent(QPaintEvent* Event) override;
-		void enterEvent(QEnterEvent* Event) override;
-		void leaveEvent(QEvent* Event) override;
-		void connectSlot();
 		
 	public:
 
@@ -52,9 +43,6 @@ namespace Flare {
 		QColor ButtonTextHoverColor() const;
 		QColor ButtonTextPressedColor() const;
 
-		f32 XRadius();
-		f32 YRadius();
-
 		void setButtonColor(const QColor& color);
 		void setButtonHoverColor(const QColor& color);
 		void setButtonPressedColor(const QColor& color);
@@ -62,11 +50,6 @@ namespace Flare {
 		void setButtonTextHoverColor(const QColor& color);
 		void setButtonTextPressedColor(const QColor& color);
 		void setColor(const Color& color);
-
-		void setxRadius(f32 Radius);
-		void setyRadius(f32 Radius);
-		void setRadius(f32 XRadius, f32 YRadius);
-
 
 		explicit PushButton(QWidget* parent = nullptr);
 		explicit PushButton(const QString& text, QWidget* parent = nullptr);

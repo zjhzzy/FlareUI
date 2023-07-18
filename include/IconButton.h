@@ -1,7 +1,7 @@
 #ifndef FLARE_ICONBUTTON_H
 #define FLARE_ICONBUTTON_H
 
-#include <QAbstractButton>
+#include "BaseButton.h"
 #include <QPainter>
 #include "flare_global.h"
 #include "FlareColor.h"
@@ -9,7 +9,7 @@
 typedef float_t f32;
 // 一个图像按钮
 namespace Flare {
-	class FLARE_EXPORT IconButton : public QAbstractButton {
+	class FLARE_EXPORT IconButton : public BaseButton {
 		Q_OBJECT
 	public:
 		struct Color {
@@ -26,14 +26,8 @@ namespace Flare {
 			Icon setAllIcon(const QIcon& icon = QIcon());
 		};
 
-		f32 XRadius();
-		f32 YRadius();
-
 		void setIcon(const Icon& icon);
 		void setColor(const Color& color);
-		void setxRadius(const f32 Radius);
-		void setyRadius(const f32 Radius);
-		void setRadius(const f32 XRadius,const f32 YRadius);
 
 		explicit IconButton(QWidget* parent = nullptr);
 		explicit IconButton(const Icon& icon, QWidget* parent = nullptr);
@@ -48,17 +42,9 @@ namespace Flare {
 		QColor* buttonBackColor;
 		QColor* buttonBackHoverColor;
 		QColor* buttonBackPressedColor;
-		
-		bool isPress;
-		bool isAbove;
-		f32 xRadius;
-		f32 yRadius;
 
 	protected:
 		void paintEvent(QPaintEvent* Event) override;
-		void enterEvent(QEnterEvent* Event) override;
-		void leaveEvent(QEvent* Event) override;
-		void connectSlot();
 
 	};
 }

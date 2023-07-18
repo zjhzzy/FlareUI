@@ -44,6 +44,9 @@
     <ClCompile Include="Widget.cpp">
       <Filter>FlareWidget</Filter>
     </ClCompile>
+    <ClCompile Include="BaseButton.cpp">
+      <Filter>Button</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="FlareWindow.qrc">
@@ -65,6 +68,9 @@
     </QtMoc>
     <QtMoc Include="include\Widget.h">
       <Filter>FlareWidget</Filter>
+    </QtMoc>
+    <QtMoc Include="include\BaseButton.h">
+      <Filter>Button</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>
