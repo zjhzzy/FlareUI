@@ -36,7 +36,7 @@ namespace Flare {
 		struct Icon {
 			QIcon buttonIcon;
 			QIcon buttonHoverIcon;
-			QIcon buttonPressedColor;
+			QIcon buttonPressedIcon;
 			Icon setAllIcon(const QIcon& icon);
 		};
 

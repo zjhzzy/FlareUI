@@ -107,11 +107,17 @@ void Flare::PushButton::setAllIcon(const QIcon& icon) {
 	*buttonPressedIcon = icon;
 }
 
+Flare::PushButton::Icon Flare::PushButton::Icon::setAllIcon(const QIcon& icon) {
+	buttonIcon = icon;
+	buttonHoverIcon = icon;
+	buttonPressedIcon = icon;
+}
+
 void Flare::PushButton::setIcon(const Icon& icon) {
 	isIcon = true;
 	*buttonIcon = icon.buttonIcon;
 	*buttonHoverIcon = icon.buttonHoverIcon;
-	*buttonPressedIcon = icon.buttonPressedColor;
+	*buttonPressedIcon = icon.buttonPressedIcon;
 }
 
 bool Flare::PushButton::isSetIcon() {
