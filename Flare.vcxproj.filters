@@ -32,7 +32,7 @@
     <ClCompile Include="FlareColor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PushButton.cpp">
+    <ClCompile Include="TextButton.cpp">
       <Filter>Button</Filter>
     </ClCompile>
     <ClCompile Include="IconButton.cpp">
@@ -47,6 +47,9 @@
     <ClCompile Include="BaseButton.cpp">
       <Filter>Button</Filter>
     </ClCompile>
+    <ClCompile Include="PushButton.cpp">
+      <Filter>Button</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="FlareWindow.qrc">
@@ -57,27 +60,30 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="include\IconButton.h">
+    <QtMoc Include="include\FlareUI\IconButton.h">
       <Filter>Button</Filter>
     </QtMoc>
-    <QtMoc Include="include\PushButton.h">
+    <QtMoc Include="include\FlareUI\PushButton.h">
       <Filter>Button</Filter>
     </QtMoc>
-    <QtMoc Include="include\FlareWindow.h">
+    <QtMoc Include="include\FlareUI\TextButton.h">
+      <Filter>Button</Filter>
+    </QtMoc>
+    <QtMoc Include="include\FlareUI\BaseButton.h">
+      <Filter>Button</Filter>
+    </QtMoc>
+    <QtMoc Include="include\FlareUI\FlareWindow.h">
       <Filter>FlareWidget</Filter>
     </QtMoc>
-    <QtMoc Include="include\Widget.h">
+    <QtMoc Include="include\FlareUI\Widget.h">
       <Filter>FlareWidget</Filter>
-    </QtMoc>
-    <QtMoc Include="include\BaseButton.h">
-      <Filter>Button</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\flare_global.h">
+    <ClInclude Include="include\FlareUI\flare_global.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\FlareColor.h">
+    <ClInclude Include="include\FlareUI\FlareColor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

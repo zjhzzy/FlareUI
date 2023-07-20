@@ -63,13 +63,13 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>C:\Users\zjh_3\Documents\GitHub\FlareUI\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\zjh_3\Documents\GitHub\FlareUI\include\FlareUI;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <OutputFile>$(OutDir)$(ProjectName)d.dll</OutputFile>
@@ -77,13 +77,13 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>C:\Users\zjh_3\Documents\GitHub\FlareUI\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\zjh_3\Documents\GitHub\FlareUI\include\FlareUI;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
@@ -121,6 +121,7 @@
     <ClCompile Include="FlareColor.cpp" />
     <ClCompile Include="IconButton.cpp" />
     <ClCompile Include="PushButton.cpp" />
+    <ClCompile Include="TextButton.cpp" />
     <ClCompile Include="FlareWindow.cpp" />
     <ClCompile Include="Widget.cpp" />
   </ItemGroup>
@@ -131,21 +132,26 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="include\IconButton.h" />
+    <QtMoc Include="include\FlareUI\IconButton.h" />
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="include\PushButton.h" />
+    <QtMoc Include="include\FlareUI\PushButton.h" />
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="include\FlareWindow.h" />
+    <QtMoc Include="include\FlareUI\TextButton.h" />
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="include\Widget.h" />
+    <QtMoc Include="include\FlareUI\BaseButton.h" />
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="include\BaseButton.h" />
-    <ClInclude Include="include\FlareColor.h" />
-    <ClInclude Include="include\flare_global.h" />
+    <QtMoc Include="include\FlareUI\FlareWindow.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="include\FlareUI\Widget.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\FlareUI\FlareColor.h" />
+    <ClInclude Include="include\FlareUI\flare_global.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
