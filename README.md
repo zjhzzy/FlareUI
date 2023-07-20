@@ -1,7 +1,9 @@
 # FlareUI
 
 This is a UI library based on Qt, which offers modern and visually appealing controls and UI features, fully compatible with Qt's functionality and advantages.
+
 这是一个基于Qt的UI库，提供现代化和美观的控件和UI特性，完全兼容Qt的功能和优势。
+
 [English](README_EN.md)
 
 ## 项目描述
@@ -32,7 +34,7 @@ FlareUI库是一个基于Qt库扩展的UI库，是为了开发者减少使用Qss
 
    便可以实现
 
-   ![窗口代码](assets\MainWindow.png)
+   ![窗口代码](assets/MainWindow.png)
 
    
 
