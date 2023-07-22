@@ -1,14 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>qml;cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>qrc;rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
@@ -16,22 +8,37 @@
     <Filter Include="Button">
       <UniqueIdentifier>{27b95854-4ff0-4daf-a304-c41ca2bfdb8b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="FlareWidget">
+    <Filter Include="Widget">
       <UniqueIdentifier>{d7c702b9-8252-4879-baee-38d5fae529e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Color">
+      <UniqueIdentifier>{908358a1-8b70-4721-bfa8-dc822848aeab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Menu">
+      <UniqueIdentifier>{3f06f73d-0457-496a-8f6a-5f959dc32094}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SystemIcon">
+      <UniqueIdentifier>{3d9fb4b7-a426-46c1-b8a1-fb5613fede3b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="FlareColor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Widget.cpp">
-      <Filter>FlareWidget</Filter>
+      <Filter>Widget</Filter>
     </ClCompile>
     <ClCompile Include="BaseButton.cpp">
       <Filter>Button</Filter>
     </ClCompile>
     <ClCompile Include="PushButton.cpp">
       <Filter>Button</Filter>
+    </ClCompile>
+    <ClCompile Include="FlareColor.cpp">
+      <Filter>Color</Filter>
+    </ClCompile>
+    <ClCompile Include="SystemIcon.cpp">
+      <Filter>SystemIcon</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>Menu</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -50,15 +57,19 @@
       <Filter>Button</Filter>
     </QtMoc>
     <QtMoc Include="include\FlareUI\Widget.h">
-      <Filter>FlareWidget</Filter>
+      <Filter>Widget</Filter>
+    </QtMoc>
+    <QtMoc Include="SystemIcon.h">
+      <Filter>SystemIcon</Filter>
+    </QtMoc>
+    <QtMoc Include="Menu.h">
+      <Filter>Menu</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\FlareUI\flare_global.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\FlareUI\FlareColor.h">
-      <Filter>Header Files</Filter>
+      <Filter>Color</Filter>
     </ClInclude>
+    <ClInclude Include="include\FlareUI\flare_global.h" />
   </ItemGroup>
 </Project>

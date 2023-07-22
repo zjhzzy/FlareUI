@@ -1,10 +1,8 @@
 #ifndef FLARE_COLOR_H
 #define FLARE_COLOR_H
 
-#include <QColor>
+#include <QtGui/QColor>
 #include "flare_global.h"
-
-typedef float_t f32;
 
 struct FLARE_EXPORT FlareColor {
 	static const QColor BlueLight;

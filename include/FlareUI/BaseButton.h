@@ -1,12 +1,11 @@
 #ifndef FLARE_BASEBUTTON_H
 #define FLARE_BASEBUTTON_H
-#include <QAbstractButton>
+#include <QtWidgets/QAbstractButton>
 #include "flare_global.h"
 
 typedef float_t f32;
 
-class FLARE_EXPORT BaseButton : public QAbstractButton
-{
+class FLARE_EXPORT BaseButton : public QAbstractButton {
 	Q_OBJECT
 private:
 	f32 xRadius;
@@ -19,7 +18,7 @@ protected:
 	void mousePressEvent(QMouseEvent* event) override;
 	void mouseReleaseEvent(QMouseEvent* event) override;
 public:
-	BaseButton(QWidget *parent);
+	BaseButton(QWidget* parent);
 	~BaseButton();
 
 	f32 XRadius();

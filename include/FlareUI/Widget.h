@@ -1,10 +1,13 @@
 #ifndef FLARE_WIDGET_H
 #define FLARE_WIDGET_H
 
-#include <QWidget>
-#include <QPainter>
-#include <QMouseEvent>
+#include <QtWidgets/QWidget>
+#include <QtGui/QPainter>
+#include <QtGui/QMouseEvent>
 #include "FlareColor.h"
+
+typedef float_t f32;
+
 namespace Flare {
 	class FLARE_EXPORT Widget : public QWidget {
 		Q_OBJECT

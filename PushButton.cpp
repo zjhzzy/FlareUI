@@ -155,6 +155,7 @@ Flare::PushButton::Icon Flare::PushButton::Icon::setAllIcon(const QIcon& icon) {
 	buttonIcon = icon;
 	buttonHoverIcon = icon;
 	buttonPressedIcon = icon;
+	return *this;
 }
 
 void Flare::PushButton::setIcon(const Icon& icon) {

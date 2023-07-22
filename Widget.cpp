@@ -5,7 +5,7 @@ void Flare::Widget::paintEvent(QPaintEvent* Event) {
 	painter.setPen(WidgetColor());
 	painter.setBrush(WidgetColor());
 	painter.setRenderHint(QPainter::Antialiasing, true);
-	painter.drawRoundedRect(0, 0, width(), height(), XRadius(), YRadius(), Qt::RelativeSize);
+	painter.drawRoundedRect(1, 1, width() - 1, height() - 1, XRadius(), YRadius(), Qt::RelativeSize);
 	painter.end();
 }
 
@@ -29,15 +29,14 @@ void Flare::Widget::mouseReleaseEvent(QMouseEvent* Event) {
 	emit release();
 }
 
-Flare::Widget::Widget(QWidget *parent)
-	: QWidget(parent),WidgetBackColor(new QColor(FlareColor::White)){
+Flare::Widget::Widget(QWidget* parent)
+	: QWidget(parent), WidgetBackColor(new QColor(FlareColor::White)) {
 	xRadius = 0;
 	yRadius = 0;
 	isAbove = false;
 }
 
-Flare::Widget::~Widget()
-{}
+Flare::Widget::~Widget() {}
 
 f32 Flare::Widget::XRadius() {
 	return xRadius;

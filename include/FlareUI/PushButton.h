@@ -1,6 +1,6 @@
 #ifndef FLARE_PUSHBUTTON_H
 #define FLARE_PUSHBUTTON_H
-#include <QPainter>
+#include <QtGui/QPainter>
 #include "flare_global.h"
 #include "FlareColor.h"
 #include "BaseButton.h"

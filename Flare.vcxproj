@@ -31,12 +31,12 @@
     <Import Project="$(QtMsBuild)\qt_defaults.props" />
   </ImportGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="QtSettings">
-    <QtInstall>6.6.0_msvc2019_64</QtInstall>
+    <QtInstall>msvc2019_64</QtInstall>
     <QtModules>core;gui;widgets</QtModules>
     <QtBuildConfig>debug</QtBuildConfig>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="QtSettings">
-    <QtInstall>6.6.0_msvc2019_64</QtInstall>
+    <QtInstall>msvc2019_64</QtInstall>
     <QtModules>core;gui;widgets</QtModules>
     <QtBuildConfig>release</QtBuildConfig>
   </PropertyGroup>
@@ -57,9 +57,13 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <TargetName>$(ProjectName)</TargetName>
     <OutDir>.\lib\</OutDir>
+    <IncludePath>C:\Users\zjh_3\Documents\GitHub\FlareUI\include\FlareUI;$(IncludePath)</IncludePath>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <OutDir>.\lib\</OutDir>
+    <IncludePath>C:\Users\zjh_3\Documents\GitHub\FlareUI\include\FlareUI;$(IncludePath)</IncludePath>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -119,7 +123,9 @@
   <ItemGroup>
     <ClCompile Include="BaseButton.cpp" />
     <ClCompile Include="FlareColor.cpp" />
+    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="PushButton.cpp" />
+    <ClCompile Include="SystemIcon.cpp" />
     <ClCompile Include="Widget.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -140,6 +146,8 @@
   <ItemGroup>
     <ClInclude Include="include\FlareUI\FlareColor.h" />
     <ClInclude Include="include\FlareUI\flare_global.h" />
+    <QtMoc Include="Menu.h" />
+    <QtMoc Include="SystemIcon.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
