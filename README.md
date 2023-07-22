@@ -34,7 +34,7 @@ FlareUI库是一个基于Qt库扩展的UI库，是为了开发者减少使用Qss
 
    便可以实现
 
-   ![窗口代码](assets\MainWindow.png)
+   ![窗口代码](assets/MainWindow.png)
 
    
 
