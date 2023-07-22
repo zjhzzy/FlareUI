@@ -13,14 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>qrc;rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Form Files">
-      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
-      <Extensions>ui</Extensions>
-    </Filter>
-    <Filter Include="Translation Files">
-      <UniqueIdentifier>{639EADAA-A684-42e4-A9AD-28FC9BCB8F7C}</UniqueIdentifier>
-      <Extensions>ts</Extensions>
-    </Filter>
     <Filter Include="Button">
       <UniqueIdentifier>{27b95854-4ff0-4daf-a304-c41ca2bfdb8b}</UniqueIdentifier>
     </Filter>
@@ -31,15 +23,6 @@
   <ItemGroup>
     <ClCompile Include="FlareColor.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="TextButton.cpp">
-      <Filter>Button</Filter>
-    </ClCompile>
-    <ClCompile Include="IconButton.cpp">
-      <Filter>Button</Filter>
-    </ClCompile>
-    <ClCompile Include="FlareWindow.cpp">
-      <Filter>FlareWidget</Filter>
     </ClCompile>
     <ClCompile Include="Widget.cpp">
       <Filter>FlareWidget</Filter>
@@ -60,20 +43,11 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="include\FlareUI\IconButton.h">
-      <Filter>Button</Filter>
-    </QtMoc>
     <QtMoc Include="include\FlareUI\PushButton.h">
-      <Filter>Button</Filter>
-    </QtMoc>
-    <QtMoc Include="include\FlareUI\TextButton.h">
       <Filter>Button</Filter>
     </QtMoc>
     <QtMoc Include="include\FlareUI\BaseButton.h">
       <Filter>Button</Filter>
-    </QtMoc>
-    <QtMoc Include="include\FlareUI\FlareWindow.h">
-      <Filter>FlareWidget</Filter>
     </QtMoc>
     <QtMoc Include="include\FlareUI\Widget.h">
       <Filter>FlareWidget</Filter>

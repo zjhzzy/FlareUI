@@ -119,10 +119,7 @@
   <ItemGroup>
     <ClCompile Include="BaseButton.cpp" />
     <ClCompile Include="FlareColor.cpp" />
-    <ClCompile Include="IconButton.cpp" />
     <ClCompile Include="PushButton.cpp" />
-    <ClCompile Include="TextButton.cpp" />
-    <ClCompile Include="FlareWindow.cpp" />
     <ClCompile Include="Widget.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -132,19 +129,10 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="include\FlareUI\IconButton.h" />
-  </ItemGroup>
-  <ItemGroup>
     <QtMoc Include="include\FlareUI\PushButton.h" />
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="include\FlareUI\TextButton.h" />
-  </ItemGroup>
-  <ItemGroup>
     <QtMoc Include="include\FlareUI\BaseButton.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <QtMoc Include="include\FlareUI\FlareWindow.h" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="include\FlareUI\Widget.h" />
