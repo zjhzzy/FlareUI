@@ -4,14 +4,16 @@
 
 #include "ListView.h"
 
-ListView::ListView(QWidget *parent) :
-        QWidget(parent),
+
+
+Flare::ListView::ListView(QWidget *parent) :
+        Widget(parent),
         WidgetList(new QList<QWidget *>()),
         Spacing(0), MarginLeft(0), IsScrollable(false) {
 
 }
 
-void ListView::append(QWidget *w) {
+void Flare::ListView::append(QWidget *w) {
     w->setParent(this);
     WidgetList->push_back(w);
     // 如果已经可见那就显示
@@ -20,34 +22,34 @@ void ListView::append(QWidget *w) {
     }
 }
 
-void ListView::remove(const int &i) {
+void Flare::ListView::remove(const int &i) {
     WidgetList->remove(i);
     if (isVisible()) {
         setPosition();
     }
 }
 
-void ListView::clear() {
+void Flare::ListView::clear() {
     WidgetList->clear();
 }
 
-void ListView::setSpacing(const int &s) {
+void Flare::ListView::setSpacing(const int &s) {
     Spacing = s;
 }
 
 
-void ListView::showEvent(QShowEvent *event) {
+void Flare::ListView::showEvent(QShowEvent *event) {
     QWidget::showEvent(event);
     for (const auto &i: *WidgetList)
         i->show();
     setPosition();
 }
 
-void ListView::setMarginLeft(const int &m) {
+void Flare::ListView::setMarginLeft(const int &m) {
     MarginLeft = m;
 }
 
-void ListView::setPosition() {
+void Flare::ListView::setPosition() {
     assert(!WidgetList->empty());
     WidgetList->at(0)->move(marginLeft(), 0);
     for (int i = 1; i != WidgetList->size(); ++i) {
@@ -56,23 +58,23 @@ void ListView::setPosition() {
     }
 }
 
-int ListView::spacing() const {
+int Flare::ListView::spacing() const {
     return Spacing;
 }
 
-int ListView::marginLeft() const {
+int Flare::ListView::marginLeft() const {
     return MarginLeft;
 }
 
-void ListView::setScrollable(const bool &s) {
+void Flare::ListView::setScrollable(const bool &s) {
     IsScrollable = s;
 }
 
-bool ListView::isScrollable() const {
+bool Flare::ListView::isScrollable() const {
     return IsScrollable;
 }
 
-void ListView::wheelEvent(QWheelEvent *event) {
+void Flare::ListView::wheelEvent(QWheelEvent *event) {
     QWidget::wheelEvent(event);
     if (isScrollable()) {
         allWidgetMove(event->angleDelta().y());
@@ -80,15 +82,15 @@ void ListView::wheelEvent(QWheelEvent *event) {
     //! 要记得在使用VS时将这个类继承于Flare::Widget然后加一层isAbove的判断
 }
 
-void ListView::setMoveSpeed(const int &s) {
+void Flare::ListView::setMoveSpeed(const int &s) {
     MoveSpeed = s;
 }
 
-int ListView::moveSpeed() const {
+int Flare::ListView::moveSpeed() const {
     return MoveSpeed;
 }
 
-void ListView::allWidgetMove(const int &n) {
+void Flare::ListView::allWidgetMove(const int &n) {
     if (WidgetList->empty()) {
         return;
     }

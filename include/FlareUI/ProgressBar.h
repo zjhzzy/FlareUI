@@ -5,15 +5,16 @@
 #ifndef FLARELIST_PROGRESSBAR_H
 #define FLARELIST_PROGRESSBAR_H
 
-#include <QWidget>
+#include "Widget.h"
 #include <QPainter>
 
 typedef float_t f32;
 
 namespace Flare {
 
-    class ProgressBar : public QWidget {
+    class FLARE_EXPORT ProgressBar : public Widget {
     Q_OBJECT
+
     private:
         f32 progress;
         QColor *progressBarColor;
@@ -21,8 +22,9 @@ namespace Flare {
         int lineWidth;
     protected:
         void paintEvent(QPaintEvent *event) override;
+
     public:
-        ProgressBar();
+        ProgressBar(QWidget*parent = nullptr);
 
         void setProgress(const f32 &p);
 
@@ -36,7 +38,7 @@ namespace Flare {
 
         int XMargin() const;
 
-        void setLineWidth(const int& l);
+        void setLineWidth(const int &l);
 
         int LineWidth() const;
 

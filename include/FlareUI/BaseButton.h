@@ -5,36 +5,48 @@
 
 typedef float_t f32;
 
-class FLARE_EXPORT BaseButton : public QAbstractButton {
-	Q_OBJECT
-private:
-	f32 xRadius;
-	f32 yRadius;
-	bool isPress;
-	bool isAbove;
-protected:
-	void enterEvent(QEnterEvent* event) override;
-	void leaveEvent(QEvent* event) override;
-	void mousePressEvent(QMouseEvent* event) override;
-	void mouseReleaseEvent(QMouseEvent* event) override;
-public:
-	BaseButton(QWidget* parent);
-	~BaseButton();
+namespace Flare{
+    class FLARE_EXPORT BaseButton : public QAbstractButton {
+    Q_OBJECT
+    private:
+        bool isPress;
+        bool isAbove;
+        bool isIcon;
+        QIcon* buttonIcon;
+        QIcon* buttonHoverIcon;
+        QIcon* buttonPressedIcon;
+    protected:
+        void enterEvent(QEnterEvent* event) override;
+        void leaveEvent(QEvent* event) override;
+        void mousePressEvent(QMouseEvent* event) override;
+        void mouseReleaseEvent(QMouseEvent* event) override;
+    public:
+        BaseButton(QWidget* parent);
+        ~BaseButton();
 
-	f32 XRadius();
-	f32 YRadius();
-	bool IsPress();
-	bool IsAbove();
+        struct Icon {
+            QIcon buttonIcon;
+            QIcon buttonHoverIcon;
+            QIcon buttonPressedIcon;
+            Icon setAllIcon(const QIcon& icon);
+        };
 
+        bool IsPress() const;
+        bool IsAbove() const;
 
-	void setXRadius(const f32& Radius);
-	void setYRadius(const f32& Radius);
-	void setRadius(const f32& Xradius, const f32& Yradius);
+        void setAllIcon(const QIcon& icon);
+        void setIcon(const Icon& icon);
+        bool isSetIcon() const;
 
-signals:
-	void moveAbove();
-	void leaveAbove();
+        QIcon ButtonIcon();
+        QIcon ButtonHoverIcon();
+        QIcon ButtonPressedIcon();
 
-};
+    signals:
+        void moveAbove();
+        void leaveAbove();
+
+    };
+}
 
 #endif

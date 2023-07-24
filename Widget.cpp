@@ -5,7 +5,7 @@ void Flare::Widget::paintEvent(QPaintEvent* Event) {
 	painter.setPen(WidgetColor());
 	painter.setBrush(WidgetColor());
 	painter.setRenderHint(QPainter::Antialiasing, true);
-	painter.drawRoundedRect(1, 1, width() - 1, height() - 1, XRadius(), YRadius(), Qt::RelativeSize);
+	painter.drawRoundedRect(1, 1, width() - 2, height() - 2, XRadius(), YRadius(), Qt::RelativeSize);
 	painter.end();
 }
 

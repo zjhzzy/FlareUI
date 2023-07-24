@@ -1,65 +1,90 @@
 #include "BaseButton.h"
 
-void BaseButton::enterEvent(QEnterEvent* event) {
-	QAbstractButton::enterEvent(event);
-	isAbove = true;
-	update();
-	emit moveAbove();
-}
+namespace Flare {
+    void BaseButton::enterEvent(QEnterEvent *event) {
+        QAbstractButton::enterEvent(event);
+        isAbove = true;
+        update();
+        emit moveAbove();
+    }
 
-void BaseButton::leaveEvent(QEvent* event) {
-	QAbstractButton::leaveEvent(event);
-	isAbove = false;
-	update();
-	emit leaveAbove();
-}
+    void BaseButton::leaveEvent(QEvent *event) {
+        QAbstractButton::leaveEvent(event);
+        isAbove = false;
+        update();
+        emit leaveAbove();
+    }
 
-void BaseButton::mousePressEvent(QMouseEvent* event) {
-	QAbstractButton::mousePressEvent(event);
-	isPress = true;
-	update();
-}
+    void BaseButton::mousePressEvent(QMouseEvent *event) {
+        QAbstractButton::mousePressEvent(event);
+        isPress = true;
+        update();
+    }
 
-void BaseButton::mouseReleaseEvent(QMouseEvent* event) {
-	QAbstractButton::mouseReleaseEvent(event);
-	isPress = false;
-	update();
-}
+    void BaseButton::mouseReleaseEvent(QMouseEvent *event) {
+        QAbstractButton::mouseReleaseEvent(event);
+        isPress = false;
+        update();
+    }
 
-BaseButton::BaseButton(QWidget *parent)
-	: QAbstractButton(parent),
-	xRadius(0),yRadius(0),
-	isAbove(false),isPress(false){
-}
+    BaseButton::BaseButton(QWidget *parent) :
+            QAbstractButton(parent),
+            isAbove(false), isPress(false),
+            isIcon(false), buttonIcon(new QIcon()),
+            buttonHoverIcon(new QIcon()),
+            buttonPressedIcon(new QIcon()) {
+    }
 
-BaseButton::~BaseButton()
-{}
+    BaseButton::~BaseButton() {
+        delete buttonHoverIcon;
+        delete buttonIcon;
+        delete buttonPressedIcon;
+    }
 
-f32 BaseButton::XRadius() {
-	return xRadius;
-}
 
-f32 BaseButton::YRadius() {
-	return yRadius;
-}
+    bool BaseButton::IsPress() const {
+        return isPress;
+    }
 
-bool BaseButton::IsPress() {
-	return isPress;
-}
+    bool BaseButton::IsAbove() const {
+        return isAbove;
+    }
 
-bool BaseButton::IsAbove() {
-	return isAbove;
-}
+    void Flare::BaseButton::setAllIcon(const QIcon &icon) {
+        isIcon = true;
+        *buttonHoverIcon = icon;
+        *buttonIcon = icon;
+        *buttonPressedIcon = icon;
+    }
 
-void BaseButton::setXRadius(const f32& Radius) {
-	xRadius = Radius;
-}
+    Flare::BaseButton::Icon Flare::BaseButton::Icon::setAllIcon(const QIcon &icon) {
+        buttonIcon = icon;
+        buttonHoverIcon = icon;
+        buttonPressedIcon = icon;
+        return *this;
+    }
 
-void BaseButton::setYRadius(const f32& Radius) {
-	yRadius = Radius;
-}
+    void Flare::BaseButton::setIcon(const Icon &icon) {
+        isIcon = true;
+        *buttonIcon = icon.buttonIcon;
+        *buttonHoverIcon = icon.buttonHoverIcon;
+        *buttonPressedIcon = icon.buttonPressedIcon;
+    }
 
-void BaseButton::setRadius(const f32& Xradius, const f32& Yradius) {
-	setXRadius(Xradius);
-	setYRadius(Yradius);
+    bool Flare::BaseButton::isSetIcon() const {
+        return isIcon;
+    }
+
+    QIcon BaseButton::ButtonIcon() {
+        return *buttonIcon;
+    }
+
+    QIcon BaseButton::ButtonHoverIcon() {
+        return *buttonHoverIcon;
+    }
+
+    QIcon BaseButton::ButtonPressedIcon() {
+        return *buttonPressedIcon;
+    }
+
 }

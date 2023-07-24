@@ -5,12 +5,14 @@
 #ifndef FLARELIST_LISTVIEW_H
 #define FLARELIST_LISTVIEW_H
 
-#include <QWidget>
+#include "QtWidgets/qwidget.h"
+#include "Widget.h"
 #include <QList>
 #include <QWheelEvent>
 
-class ListView : public QWidget {
-Q_OBJECT
+namespace Flare {
+class FLARE_EXPORT ListView : public Widget {
+    Q_OBJECT
 
     QList<QWidget *> *WidgetList;
 
@@ -55,6 +57,7 @@ public:
 
     int moveSpeed() const;
 };
+}
 
 
 #endif //FLARELIST_LISTVIEW_H

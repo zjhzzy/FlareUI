@@ -18,10 +18,8 @@ namespace Flare {
 		QColor* buttonTextColor;
 		QColor* buttonTextHoverColor;
 		QColor* buttonTextPressedColor;
-		QIcon* buttonIcon;
-		QIcon* buttonHoverIcon;
-		QIcon* buttonPressedIcon;
-		bool isIcon;
+        f32 xRadius;
+        f32 yRadius;
 	protected:
 		void paintEvent(QPaintEvent* event) override;
 	public:
@@ -41,15 +39,10 @@ namespace Flare {
 			Color setAllTextColor(const QColor& color);
 		};
 
-		struct Icon {
-			QIcon buttonIcon;
-			QIcon buttonHoverIcon;
-			QIcon buttonPressedIcon;
-			Icon setAllIcon(const QIcon& icon);
-		};
+
 
 		explicit PushButton(QWidget* parent = nullptr);
-		PushButton(const QString& Text, QWidget* parent = nullptr);
+		explicit PushButton(const QString& Text, QWidget* parent = nullptr);
 		PushButton(const Icon& icon, const QString& Text, QWidget* parent = nullptr);
 		PushButton(const Color& color, const Icon& icon, const QString& Text, QWidget* parent = nullptr);
 		~PushButton();
@@ -65,9 +58,12 @@ namespace Flare {
 		void setButtonTextPressedColor(const QColor& color);
 		void setColor(const Color& color);
 
-		void setAllIcon(const QIcon& icon);
-		void setIcon(const Icon& icon);
-		bool isSetIcon();
+
+        void setXRadius(const f32& Radius);
+        void setYRadius(const f32& Radius);
+        void setRadius(const f32& x, const f32& y);
+        f32 XRadius();
+        f32 YRadius();
 
 	};
 }

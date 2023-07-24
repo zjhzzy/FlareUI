@@ -5,7 +5,8 @@
 #include "ProgressBar.h"
 
 namespace Flare {
-    ProgressBar::ProgressBar() : progress(0.f), progressBarColor(new QColor()), xMargin(0), lineWidth(1) {
+    ProgressBar::ProgressBar(QWidget *parent) : Widget(parent), progress(0.f), progressBarColor(new QColor()),
+                                                xMargin(0), lineWidth(1) {
 
     }
 
@@ -57,5 +58,6 @@ namespace Flare {
     int ProgressBar::LineWidth() const {
         return lineWidth;
     }
+
 
 } // Flare
