@@ -31,32 +31,11 @@ void Flare::SystemIcon::connectSlots() {
 }
 
 void SystemIcon::showMenu() {
-    if (iconMenu) {
-        // Get the screen geometry
-        QScreen *screen = QGuiApplication::primaryScreen();
-        QRect screenGeometry = screen->availableGeometry();
-
-        // Get the menu size
-        QSize menuSize = iconMenu->sizeHint();
-
-        // Calculate the menu position
-        int x = QCursor::pos().x() - menuSize.width() / 2;
-        int y = QCursor::pos().y() + 10;
-
-        // Adjust the menu position to ensure it stays within the screen boundaries
-        if (x < screenGeometry.left())
-            x = screenGeometry.left();
-        else if (x + menuSize.width() > screenGeometry.right())
-            x = screenGeometry.right() - menuSize.width();
-        if (y < screenGeometry.top())
-            y = screenGeometry.top();
-        else if (y + menuSize.height() > screenGeometry.bottom())
-            y = screenGeometry.bottom() - menuSize.height();
-
-        // Show the menu at the adjusted position
-        iconMenu->move(QPoint(x, y));
+    if (iconMenu != nullptr) {
+        iconMenu->show();
     }
 }
+
 
 
 void Flare::SystemIcon::setTriggerMenu(QSystemTrayIcon::ActivationReason trigger) {
@@ -95,17 +74,23 @@ void Flare::SystemIcon::setTriggerMenu(QSystemTrayIcon::ActivationReason trigger
 }
 
 SystemIcon::SystemIcon(QObject *parent)
-        : QSystemTrayIcon(parent), iconMenu(nullptr) {}
+        : QSystemTrayIcon(parent), iconMenu(nullptr) {
+    connectSlots();
+}
 
 SystemIcon::SystemIcon(const QIcon &icon, QObject *parent)
-        : QSystemTrayIcon(icon, parent), iconMenu(nullptr) {}
+        : QSystemTrayIcon(icon, parent), iconMenu(nullptr) {
+    connectSlots();
+}
 
-SystemIcon::SystemIcon(Menu *appMenu, const QIcon &icon, QObject *parent)
-        : QSystemTrayIcon(icon, parent), iconMenu(appMenu) {}
+SystemIcon::SystemIcon(Widget *appMenu, const QIcon &icon, QObject *parent)
+        : QSystemTrayIcon(icon, parent), iconMenu(appMenu) {
+    connectSlots();
+}
 
-SystemIcon::~SystemIcon() {}
+SystemIcon::~SystemIcon() = default;
 
-void Flare::SystemIcon::setMenu(Flare::Menu *menu) {
+void Flare::SystemIcon::setMenu(Flare::Widget *menu) {
     iconMenu = menu;
 }
 

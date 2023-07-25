@@ -12,10 +12,8 @@ namespace Flare {
     class FLARE_EXPORT SystemIcon : public QSystemTrayIcon {
     Q_OBJECT
 
-        SystemIcon(Menu *appMenu, const QIcon &icon, QObject *parent);
-
     private:
-        Menu *iconMenu;
+        Widget *iconMenu;
 
     protected:
 
@@ -28,13 +26,13 @@ namespace Flare {
 
         explicit SystemIcon(const QIcon &icon, QObject *parent = nullptr);
 
-        SystemIcon(QMenu *appMenu, const QIcon &icon, QObject *parent = nullptr);
+        SystemIcon(Widget *appMenu, const QIcon &icon, QObject *parent = nullptr);
 
         ~SystemIcon();
 
         void setTriggerMenu(ActivationReason trigger);
 
-        void setMenu(Menu *menu);
+        void setMenu(Widget *menu);
 
     signals:
 

@@ -30,7 +30,7 @@ void Flare::Menu::addButton(Flare::PushButton *button) {
     int heightTemp = 0;
     widthTemp = buttonVector.first()->Button().width();
     for (const auto &item: buttonVector) {
-        heightTemp = item->Button().height();
+        heightTemp += item->Button().height();
     }
     setFixedSize(widthTemp, heightTemp);
 }
