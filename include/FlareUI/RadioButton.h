@@ -9,6 +9,7 @@
 #include "BaseButton.h"
 #include <QPainter>
 #include "FlareColor.h"
+#include "QRadioButton"
 
 namespace Flare {
     class FLARE_EXPORT RadioButton : public BaseButton {
@@ -22,6 +23,7 @@ namespace Flare {
         QColor *buttonPenHoverColor;
         QColor *buttonPenPressedColor;
         int penWidget;
+        bool check;
     protected:
         void connectSlot();
 
@@ -47,11 +49,19 @@ namespace Flare {
 
         explicit RadioButton(QWidget *parent = nullptr);
 
-        ~RadioButton();
+        ~RadioButton() override;
 
-        void setPenWidget(const int& w);
+        void setChecked(bool checked);
+
+        bool isChecked() const;
+
+        void setPenWidget(const int &w);
 
         int PenWidget() const;
+
+    signals:
+
+        void checked();
     };
 }
 #endif //FLARE_RADIOBUTTON_H

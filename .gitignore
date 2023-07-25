@@ -404,3 +404,6 @@ FodyWeavers.xsd
 .idea/.gitignore
 */cmake-build-debug/
 */cmake-build-release/
+.idea/vcs.xml
+cmake-build-debug/.cmake/api/v1/query/cache-v2
+cmake-build-debug/.cmake/api/v1/query/cmakeFiles-v1

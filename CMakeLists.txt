@@ -26,14 +26,14 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Gui Widgets)
 
 # 添加目标源文件
 set(SOURCES
-        BaseButton.cpp
-        PushButton.cpp
-        ListView.cpp
-        Widget.cpp
-        FlareColor.cpp
-        SystemIcon.cpp
-        ProgressBar.cpp
-        RadioButton.cpp
+        src/BaseButton.cpp
+        src/PushButton.cpp
+        src/ListView.cpp
+        src/Widget.cpp
+        src/FlareColor.cpp
+        src/SystemIcon.cpp
+        src/ProgressBar.cpp
+        src/RadioButton.cpp
         include/FlareUI/BaseButton.h
         include/FlareUI/PushButton.h
         include/FlareUI/ListView.h
@@ -41,7 +41,7 @@ set(SOURCES
         include/FlareUI/FlareColor.h
         include/FlareUI/SystemIcon.h
         include/FlareUI/ProgressBar.h
-        include/FlareUI/RadioButton.h)
+        include/FlareUI/RadioButton.h include/FlareUI/Menu.h src/Menu.cpp)
 
 # 生成静态库目标
 add_library(Flare STATIC ${SOURCES})

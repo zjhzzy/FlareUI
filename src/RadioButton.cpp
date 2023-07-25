@@ -6,20 +6,23 @@
 
 void Flare::RadioButton::connectSlot() {
     connect(this, &RadioButton::pressed, this, [this]() {
-        click();
+        emit checked();
+        setChecked(!check);
+        update();
     });
 }
 
 Flare::RadioButton::RadioButton(QWidget *parent) :
         BaseButton(parent),
-        buttonBrushColor(new QColor()),
-        buttonBrushHoverColor(new QColor()),
+        buttonBrushColor(new QColor(FlareColor::White)),
+        buttonBrushHoverColor(new QColor(FlareColor::White)),
         buttonBrushPressedColor(new QColor(FlareColor::BlueDark)),
         buttonPenColor(new QColor(FlareColor::BlueLight)),
         buttonPenHoverColor(new QColor(FlareColor::BlueDark)),
         buttonPenPressedColor(new QColor(FlareColor::BlueDark)),
-        penWidget(1) {
-
+        penWidget(1),
+        check(false) {
+    connectSlot();
 }
 
 Flare::RadioButton::Color::Color(const QColor &color) :
@@ -56,7 +59,7 @@ void Flare::RadioButton::paintEvent(QPaintEvent *event) {
     Q_UNUSED(event)
     QPainter painter(this);
 
-    if(isChecked()) {
+    if (isChecked()) {
         painter.setPen(QPen(*buttonPenPressedColor, penWidget));
         painter.setBrush(*buttonBrushPressedColor);
         painter.drawEllipse(1, 1, width() - 2, height() - 2);
@@ -94,11 +97,20 @@ int Flare::RadioButton::PenWidget() const {
     return penWidget;
 }
 
-Flare::RadioButton::~RadioButton(){
+Flare::RadioButton::~RadioButton() {
     delete buttonPenColor;
     delete buttonPenHoverColor;
     delete buttonPenPressedColor;
     delete buttonBrushColor;
     delete buttonBrushHoverColor;
     delete buttonBrushPressedColor;
+}
+
+void Flare::RadioButton::setChecked(bool checked) {
+    check = checked;
+    update();
+}
+
+bool Flare::RadioButton::isChecked() const {
+    return check;
 }
