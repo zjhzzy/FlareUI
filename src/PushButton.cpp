@@ -18,7 +18,7 @@ void Flare::PushButton::paintEvent(QPaintEvent *event) {
         }
     }
 
-    painter.drawRoundedRect(1, 1, width() - 2, height() - 2, XRadius(), YRadius());
+    painter.drawRoundedRect(1, 1, width() - 2, height() - 2, XRadius(), YRadius(),Qt::RelativeSize);
 
     f32 X = 0.f;
     f32 Y = 0.f;

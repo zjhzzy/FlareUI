@@ -9,7 +9,7 @@
 #include "PushButton.h"
 #include "Widget.h"
 #include <QVector>
-
+//Todo: Menu的bug修完了，接下来任务就是ImageBox了
 namespace Flare {
 
     class FLARE_EXPORT MenuButton : public QObject {
@@ -40,6 +40,7 @@ namespace Flare {
         void addButton(PushButton *button);
 
         Menu();
+        ~Menu();
 
     signals:
 

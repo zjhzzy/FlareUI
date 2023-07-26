@@ -36,13 +36,16 @@ Flare::Widget::Widget(QWidget* parent)
 	isAbove = false;
 }
 
-Flare::Widget::~Widget() {}
+Flare::Widget::~Widget(){
+    qDebug() << "已经调用Widget析构函数";
+    delete WidgetBackColor;
+}
 
-f32 Flare::Widget::XRadius() {
+f32 Flare::Widget::XRadius() const {
 	return xRadius;
 }
 
-f32 Flare::Widget::YRadius() {
+f32 Flare::Widget::YRadius() const {
 	return yRadius;
 }
 
@@ -66,3 +69,4 @@ void Flare::Widget::setRadius(f32 XRadius, f32 YRadius) {
 void Flare::Widget::setWidgetColor(const QColor& color) {
 	*WidgetBackColor = color;
 }
+

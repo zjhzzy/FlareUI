@@ -4,6 +4,7 @@
 #include <QtWidgets/QWidget>
 #include <QtGui/QPainter>
 #include <QtGui/QMouseEvent>
+#include <QtGui/QFocusEvent>
 #include "FlareColor.h"
 
 typedef float_t f32;
@@ -23,11 +24,11 @@ namespace Flare {
 		void mousePressEvent(QMouseEvent* Event) override;
 		void mouseReleaseEvent(QMouseEvent* Event) override;
 	public:
-		Widget(QWidget* parent = nullptr);
-		~Widget();
+		explicit Widget(QWidget* parent = nullptr);
+		~Widget() override;
 
-		f32 XRadius();
-		f32 YRadius();
+		f32 XRadius() const;
+		f32 YRadius() const;
 		QColor WidgetColor();
 
 		void setxRadius(f32 Radius);

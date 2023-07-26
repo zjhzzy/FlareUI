@@ -19,16 +19,17 @@ Flare::PushButton &Flare::MenuButton::Button() {
     return *button;
 }
 
-Flare::Menu::Menu() : buttonVector(QVector<MenuButton *>()) {
-
+Flare::Menu::Menu() : buttonVector(QVector<MenuButton*>()), Widget() {
+    setWindowFlag(Qt::Popup);
 }
 
 void Flare::Menu::addButton(Flare::PushButton *button) {
     button->setParent(this);
-    buttonVector.push_back(new MenuButton(button, buttonVector.size()));
+    buttonVector.emplace_back(new MenuButton(button, buttonVector.size()));
     int widthTemp = 0;
     int heightTemp = 0;
     widthTemp = buttonVector.first()->Button().width();
+    qDebug() <<"PushButton的宽"<< widthTemp;
     for (const auto &item: buttonVector) {
         heightTemp += item->Button().height();
     }
@@ -45,3 +46,6 @@ void Flare::Menu::showEvent(QShowEvent *) {
     }
 }
 
+Flare::Menu::~Menu() {
+    qDebug() << "已经调用Menu析构函数";
+}
