@@ -30,15 +30,11 @@ namespace Flare {
     BaseButton::BaseButton(QWidget *parent) :
             QAbstractButton(parent),
             isAbove(false), isPress(false),
-            isIcon(false), buttonIcon(new QIcon()),
-            buttonHoverIcon(new QIcon()),
-            buttonPressedIcon(new QIcon()) {
+            isIcon(false), buttonIcon(new Icon()) {
     }
 
     BaseButton::~BaseButton() {
-        delete buttonHoverIcon;
         delete buttonIcon;
-        delete buttonPressedIcon;
     }
 
 
@@ -52,9 +48,9 @@ namespace Flare {
 
     void Flare::BaseButton::setAllIcon(const QIcon &icon) {
         isIcon = true;
-        *buttonHoverIcon = icon;
-        *buttonIcon = icon;
-        *buttonPressedIcon = icon;
+        buttonIcon->buttonHoverIcon = icon;
+        buttonIcon->buttonIcon = icon;
+        buttonIcon->buttonPressedIcon = icon;
     }
 
     Flare::BaseButton::Icon Flare::BaseButton::Icon::setAllIcon(const QIcon &icon) {
@@ -64,27 +60,32 @@ namespace Flare {
         return *this;
     }
 
-    void Flare::BaseButton::setIcon(const Icon &icon) {
+    void Flare::BaseButton::setIcon(Icon *icon) {
         isIcon = true;
-        *buttonIcon = icon.buttonIcon;
-        *buttonHoverIcon = icon.buttonHoverIcon;
-        *buttonPressedIcon = icon.buttonPressedIcon;
+        delete buttonIcon;
+        buttonIcon = icon;
     }
 
-    bool Flare::BaseButton::isSetIcon() const {
+    bool Flare::BaseButton::IsIcon() const {
         return isIcon;
     }
 
     QIcon BaseButton::ButtonIcon() {
-        return *buttonIcon;
+        return buttonIcon->buttonIcon;
     }
 
     QIcon BaseButton::ButtonHoverIcon() {
-        return *buttonHoverIcon;
+        return buttonIcon->buttonHoverIcon;
     }
 
     QIcon BaseButton::ButtonPressedIcon() {
-        return *buttonPressedIcon;
+        return buttonIcon->buttonPressedIcon;
+    }
+    BaseButton::Icon::Icon() {
+        qDebug()<< "BaseButton Icon 初始化";
+        buttonIcon = QIcon();
+        buttonHoverIcon = QIcon();
+        buttonPressedIcon = QIcon();
     }
 
 }

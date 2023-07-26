@@ -5,7 +5,6 @@
 #ifndef FLARELIST_LISTVIEW_H
 #define FLARELIST_LISTVIEW_H
 
-#include "QtWidgets/qwidget.h"
 #include "Widget.h"
 #include <QList>
 #include <QWheelEvent>
@@ -16,13 +15,13 @@ class FLARE_EXPORT ListView : public Widget {
 
     QList<QWidget *> *WidgetList;
 
-    int Spacing;
+    int spacing;
 
-    int MarginLeft;
+    int marginLeft;
 
-    bool IsScrollable;
+    bool isScrollable;
 
-    int MoveSpeed;
+    int moveSpeed;
 protected:
     void showEvent(QShowEvent *event) override;
 
@@ -49,13 +48,13 @@ public:
 
     void setMoveSpeed(const int &s);
 
-    int spacing() const;
+    int Spacing() const;
 
-    int marginLeft() const;
+    int MarginLeft() const;
 
-    bool isScrollable() const;
+    bool IsScrollable() const;
 
-    int moveSpeed() const;
+    int MoveSpeed() const;
 };
 }
 

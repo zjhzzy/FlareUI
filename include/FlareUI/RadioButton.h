@@ -15,15 +15,7 @@ namespace Flare {
     class FLARE_EXPORT RadioButton : public BaseButton {
     Q_OBJECT
 
-    private:
-        QColor *buttonBrushColor;
-        QColor *buttonBrushHoverColor;
-        QColor *buttonBrushPressedColor;
-        QColor *buttonPenColor;
-        QColor *buttonPenHoverColor;
-        QColor *buttonPenPressedColor;
-        int penWidget;
-        bool check;
+
     protected:
         void connectSlot();
 
@@ -37,8 +29,6 @@ namespace Flare {
             QColor buttonPenColor;
             QColor buttonPenHoverColor;
             QColor buttonPenPressedColor;
-
-            Color(const QColor &color);
 
             Color setAllColor(const QColor &color);
 
@@ -62,6 +52,11 @@ namespace Flare {
     signals:
 
         void checked();
+
+    private:
+        Color *buttonColor;
+        int penWidget;
+        bool check;
     };
 }
 #endif //FLARE_RADIOBUTTON_H

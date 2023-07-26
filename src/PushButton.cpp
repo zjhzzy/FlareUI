@@ -6,15 +6,15 @@ void Flare::PushButton::paintEvent(QPaintEvent *event) {
     QFontMetrics metrics(font());
 
     if (!IsAbove()) {
-        painter.setPen(*buttonBackColor);
-        painter.setBrush(*buttonBackBrushColor);
+        painter.setPen(buttonColor->buttonBackPenColor);
+        painter.setBrush(buttonColor->buttonBackBrushColor);
     } else {
         if (IsPress()) {
-            painter.setPen(*buttonBackPressedColor);
-            painter.setBrush(*buttonBackBrushPressedColor);
+            painter.setPen(buttonColor->buttonBackPenPressedColor);
+            painter.setBrush(buttonColor->buttonBackBrushPressedColor);
         } else {
-            painter.setPen(*buttonBackHoverColor);
-            painter.setBrush(*buttonBackBrushHoverColor);
+            painter.setPen(buttonColor->buttonBackPenHoverColor);
+            painter.setBrush(buttonColor->buttonBackPenHoverColor);
         }
     }
 
@@ -22,37 +22,37 @@ void Flare::PushButton::paintEvent(QPaintEvent *event) {
 
     f32 X = 0.f;
     f32 Y = 0.f;
-    if (isSetIcon()) {
+    if (IsIcon()) {
         X = (width() - (iconSize().width() + metrics.horizontalAdvance(text()))) / 2.f;
         Y = (height() - iconSize().height()) / 2.f;
         if (!IsAbove()) {
             painter.drawPixmap(X, Y, ButtonIcon().pixmap(iconSize()));
-            painter.setPen(*buttonTextColor);
-            painter.setBrush(*buttonTextColor);
+            painter.setPen(buttonColor->buttonTextColor);
+            painter.setBrush(buttonColor->buttonTextColor);
         } else {
             if (IsPress()) {
                 painter.drawPixmap(X, Y, ButtonPressedIcon().pixmap(iconSize()));
-                painter.setPen(*buttonTextPressedColor);
-                painter.setBrush(*buttonTextPressedColor);
+                painter.setPen(buttonColor->buttonTextPressedColor);
+                painter.setBrush(buttonColor->buttonTextPressedColor);
             } else {
                 painter.drawPixmap(X, Y, ButtonHoverIcon().pixmap(iconSize()));
-                painter.setPen(*buttonTextHoverColor);
-                painter.setBrush(*buttonTextHoverColor);
+                painter.setPen(buttonColor->buttonTextHoverColor);
+                painter.setBrush(buttonColor->buttonTextHoverColor);
             }
         }
         X = X + iconSize().width();
         Y = (height() + metrics.ascent() - metrics.descent()) / 2.f;
     } else {
         if (!IsAbove()) {
-            painter.setPen(*buttonTextColor);
-            painter.setBrush(*buttonTextColor);
+            painter.setPen(buttonColor->buttonTextColor);
+            painter.setBrush(buttonColor->buttonTextColor);
         } else {
             if (IsPress()) {
-                painter.setPen(*buttonTextPressedColor);
-                painter.setBrush(*buttonTextPressedColor);
+                painter.setPen(buttonColor->buttonTextPressedColor);
+                painter.setBrush(buttonColor->buttonTextPressedColor);
             } else {
-                painter.setPen(*buttonTextHoverColor);
-                painter.setBrush(*buttonTextHoverColor);
+                painter.setPen(buttonColor->buttonTextHoverColor);
+                painter.setBrush(buttonColor->buttonTextHoverColor);
             }
         }
         X = (width() - metrics.horizontalAdvance(text())) / 2.f;
@@ -67,102 +67,81 @@ void Flare::PushButton::paintEvent(QPaintEvent *event) {
 
 Flare::PushButton::PushButton(QWidget *parent) :
         BaseButton(parent),
-        buttonBackColor(new QColor(FlareColor::Green)),
-        buttonBackHoverColor(new QColor(FlareColor::Green)),
-        buttonBackPressedColor(new QColor(FlareColor::Green)),
-        buttonBackBrushColor(new QColor(FlareColor::Green)),
-        buttonBackBrushHoverColor(new QColor(FlareColor::Green)),
-        buttonBackBrushPressedColor(new QColor(FlareColor::Green)),
-        buttonTextColor(new QColor(FlareColor::White)),
-        buttonTextHoverColor(new QColor(FlareColor::White)),
-        buttonTextPressedColor(new QColor(FlareColor::White)),
-        xRadius(0), yRadius(0) {}
+        xRadius(0), yRadius(0),
+        buttonColor(new Color()){
+
+}
 
 Flare::PushButton::PushButton(const QString &Text, QWidget *parent) : PushButton(parent) {
     setText(Text);
 }
 
-Flare::PushButton::PushButton(const Icon &icon, const QString &Text, QWidget *parent) : PushButton(Text, parent) {
+Flare::PushButton::PushButton(Icon *icon, const QString &Text, QWidget *parent) : PushButton(Text, parent) {
     setIcon(icon);
 }
-
-Flare::PushButton::PushButton(const Color &color, const Icon &icon, const QString &Text, QWidget *parent) : PushButton(
-        icon, Text, parent) {
-    setColor(color);
-}
-
 Flare::PushButton::~PushButton() {
-    delete buttonBackColor;
-    delete buttonTextColor;
-    delete buttonBackHoverColor;
-    delete buttonTextHoverColor;
-    delete buttonBackPressedColor;
-    delete buttonTextPressedColor;
-    delete buttonBackBrushColor;
-    delete buttonBackBrushHoverColor;
-    delete buttonBackBrushPressedColor;
 }
 
-void Flare::PushButton::setButtonColor(const QColor &color) {
-    *buttonBackColor = color;
+void Flare::PushButton::setButtonPenColor(const QColor &color) {
+    buttonColor->buttonBackPenColor = color;
 }
 
-void Flare::PushButton::setButtonHoverColor(const QColor &color) {
-    *buttonBackHoverColor = color;
+void Flare::PushButton::setButtonPenHoverColor(const QColor &color) {
+    buttonColor->buttonBackPenHoverColor = color;
 }
 
-void Flare::PushButton::setButtonPressedColor(const QColor &color) {
-    *buttonBackPressedColor = color;
+void Flare::PushButton::setButtonPenPressedColor(const QColor &color) {
+    buttonColor->buttonBackPenPressedColor = color;
 }
 
 void Flare::PushButton::setButtonBrushColor(const QColor &color) {
-    *buttonBackBrushColor = color;
+    buttonColor->buttonBackBrushColor = color;
 }
 
 void Flare::PushButton::setButtonBrushHoverColor(const QColor &color) {
-    *buttonBackBrushHoverColor = color;
+    buttonColor->buttonBackBrushHoverColor = color;
 }
 
 void Flare::PushButton::setButtonBrushPressedColor(const QColor &color) {
-    *buttonBackBrushPressedColor = color;
+    buttonColor->buttonBackBrushPressedColor = color;
 }
 
 void Flare::PushButton::setButtonTextColor(const QColor &color) {
-    *buttonTextColor = color;
+    buttonColor->buttonTextColor = color;
 }
 
 void Flare::PushButton::setButtonTextHoverColor(const QColor &color) {
-    *buttonTextHoverColor = color;
+    buttonColor->buttonTextHoverColor = color;
 }
 
 void Flare::PushButton::setButtonTextPressedColor(const QColor &color) {
-    *buttonTextPressedColor = color;
+    buttonColor->buttonTextPressedColor = color;
 }
 
 
-void Flare::PushButton::setColor(const Color &color) {
-    *buttonBackColor = color.buttonBackColor;
-    *buttonBackHoverColor = color.buttonBackHoverColor;
-    *buttonBackPressedColor = color.buttonBackPressedColor;
-    *buttonTextColor = color.buttonTextColor;
-    *buttonTextHoverColor = color.buttonTextHoverColor;
-    *buttonTextPressedColor = color.buttonTextPressedColor;
+void Flare::PushButton::setColor(Color *color){
+    delete buttonColor;
+    buttonColor = color;
+    qDebug() << "setColor方法调用成功";
 }
 
 Flare::PushButton::Color Flare::PushButton::Color::setAllBackColor(const QColor &color) {
+    qDebug() << "调用setAllBackColor方法";
     setAllPenColor(color);
     setAllBrushColor(color);
     return *this;
 }
 
 Flare::PushButton::Color Flare::PushButton::Color::setAllPenColor(const QColor &color) {
-    buttonBackColor = color;
-    buttonBackHoverColor = color;
-    buttonBackPressedColor = color;
+    qDebug() <<"调用setAllPenColor方法";
+    buttonBackPenColor = color;
+    buttonBackPenHoverColor = color;
+    buttonBackPenPressedColor = color;
     return *this;
 }
 
 Flare::PushButton::Color Flare::PushButton::Color::setAllBrushColor(const QColor &color) {
+    qDebug() << "调用setAllBrushColor方法";
     buttonBackBrushColor = color;
     buttonBackBrushHoverColor = color;
     buttonBackBrushPressedColor = color;
@@ -170,6 +149,7 @@ Flare::PushButton::Color Flare::PushButton::Color::setAllBrushColor(const QColor
 }
 
 Flare::PushButton::Color Flare::PushButton::Color::setAllTextColor(const QColor &color) {
+    qDebug() << "调用setAllTextColor方法";
     buttonTextColor = color;
     buttonTextHoverColor = color;
     buttonTextPressedColor = color;
@@ -196,3 +176,16 @@ f32 Flare::PushButton::XRadius() {
 f32 Flare::PushButton::YRadius() {
     return yRadius;
 }
+
+Flare::PushButton::Color::Color(){
+    qDebug() << "初始化Color类";
+    buttonTextColor = QColor();
+    buttonTextHoverColor = QColor();
+    buttonTextPressedColor = QColor();
+    buttonBackBrushColor = QColor();
+    buttonBackBrushHoverColor = QColor();
+    buttonBackBrushPressedColor = QColor();
+    buttonBackPenColor = QColor();
+    buttonBackPenHoverColor = QColor();
+    buttonBackPenPressedColor = QColor();
+};

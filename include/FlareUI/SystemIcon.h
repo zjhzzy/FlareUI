@@ -5,9 +5,11 @@
 #include <QGuiApplication>
 #include <QScreen>
 #include "flare_global.h"
-#include "Menu.h"
+
 
 namespace Flare {
+
+    class Widget;
 
     class FLARE_EXPORT SystemIcon : public QSystemTrayIcon {
     Q_OBJECT

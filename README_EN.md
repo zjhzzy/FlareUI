@@ -2,7 +2,9 @@
 
 This is a UI library based on Qt, which offers modern and visually appealing controls and UI features, fully compatible with Qt's functionality and advantages. 
 
- [Chinese](README.md)
+
+
+[Chinese](README.md)
 
 ## Project Description
 

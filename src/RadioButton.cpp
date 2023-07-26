@@ -14,26 +14,12 @@ void Flare::RadioButton::connectSlot() {
 
 Flare::RadioButton::RadioButton(QWidget *parent) :
         BaseButton(parent),
-        buttonBrushColor(new QColor(FlareColor::White)),
-        buttonBrushHoverColor(new QColor(FlareColor::White)),
-        buttonBrushPressedColor(new QColor(FlareColor::BlueDark)),
-        buttonPenColor(new QColor(FlareColor::BlueLight)),
-        buttonPenHoverColor(new QColor(FlareColor::BlueDark)),
-        buttonPenPressedColor(new QColor(FlareColor::BlueDark)),
+        buttonColor(new Color()),
         penWidget(1),
         check(false) {
     connectSlot();
 }
 
-Flare::RadioButton::Color::Color(const QColor &color) :
-        buttonBrushColor(color),
-        buttonBrushHoverColor(color),
-        buttonBrushPressedColor(color),
-        buttonPenColor(color),
-        buttonPenHoverColor(color),
-        buttonPenPressedColor(color) {
-
-}
 
 Flare::RadioButton::Color Flare::RadioButton::Color::setAllColor(const QColor &color) {
     setAllBrushColor(color);
@@ -60,8 +46,8 @@ void Flare::RadioButton::paintEvent(QPaintEvent *event) {
     QPainter painter(this);
 
     if (isChecked()) {
-        painter.setPen(QPen(*buttonPenPressedColor, penWidget));
-        painter.setBrush(*buttonBrushPressedColor);
+        painter.setPen(QPen(buttonColor->buttonPenPressedColor, penWidget));
+        painter.setBrush(buttonColor->buttonBrushPressedColor);
         painter.drawEllipse(1, 1, width() - 2, height() - 2);
         painter.drawPixmap(0, 0, ButtonPressedIcon().pixmap(iconSize()));
         painter.end();
@@ -70,19 +56,19 @@ void Flare::RadioButton::paintEvent(QPaintEvent *event) {
 
     if (IsAbove()) {
         if (IsPress()) {
-            painter.setPen(QPen(*buttonPenPressedColor, penWidget));
-            painter.setBrush(*buttonBrushPressedColor);
+            painter.setPen(QPen(buttonColor->buttonPenPressedColor, penWidget));
+            painter.setBrush(buttonColor->buttonBrushPressedColor);
             painter.drawEllipse(1, 1, width() - 2, height() - 2);
             painter.drawPixmap(0, 0, ButtonPressedIcon().pixmap(iconSize()));
         } else {
-            painter.setPen(QPen(*buttonPenHoverColor, penWidget));
-            painter.setBrush(*buttonBrushHoverColor);
+            painter.setPen(QPen(buttonColor->buttonPenHoverColor, penWidget));
+            painter.setBrush(buttonColor->buttonBrushHoverColor);
             painter.drawEllipse(1, 1, width() - 2, height() - 2);
             painter.drawPixmap(0, 0, ButtonHoverIcon().pixmap(iconSize()));
         }
     } else {
-        painter.setPen(QPen(*buttonPenColor, penWidget));
-        painter.setBrush(*buttonBrushColor);
+        painter.setPen(QPen(buttonColor->buttonPenColor, penWidget));
+        painter.setBrush(buttonColor->buttonBrushColor);
         painter.drawEllipse(1, 1, width() - 2, height() - 2);
         painter.drawPixmap(0, 0, ButtonIcon().pixmap(iconSize()));
     }
@@ -98,12 +84,7 @@ int Flare::RadioButton::PenWidget() const {
 }
 
 Flare::RadioButton::~RadioButton() {
-    delete buttonPenColor;
-    delete buttonPenHoverColor;
-    delete buttonPenPressedColor;
-    delete buttonBrushColor;
-    delete buttonBrushHoverColor;
-    delete buttonBrushPressedColor;
+    delete buttonColor;
 }
 
 void Flare::RadioButton::setChecked(bool checked) {

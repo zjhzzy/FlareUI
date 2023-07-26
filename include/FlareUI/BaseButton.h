@@ -8,13 +8,7 @@ typedef float_t f32;
 namespace Flare{
     class FLARE_EXPORT BaseButton : public QAbstractButton {
     Q_OBJECT
-    private:
-        bool isPress;
-        bool isAbove;
-        bool isIcon;
-        QIcon* buttonIcon;
-        QIcon* buttonHoverIcon;
-        QIcon* buttonPressedIcon;
+
     protected:
         void enterEvent(QEnterEvent* event) override;
         void leaveEvent(QEvent* event) override;
@@ -28,6 +22,7 @@ namespace Flare{
             QIcon buttonIcon;
             QIcon buttonHoverIcon;
             QIcon buttonPressedIcon;
+            Icon();
             Icon setAllIcon(const QIcon& icon);
         };
 
@@ -35,8 +30,12 @@ namespace Flare{
         bool IsAbove() const;
 
         void setAllIcon(const QIcon& icon);
-        void setIcon(const Icon& icon);
-        bool isSetIcon() const;
+        void setIcon(Icon* icon);
+        bool IsIcon() const;
+
+        void setButtonIcon(const QIcon& icon);
+        void setButtonHoverIcon(const QIcon& icon);
+        void setButtonPressedIcon(const QIcon& icon);
 
         QIcon ButtonIcon();
         QIcon ButtonHoverIcon();
@@ -46,6 +45,11 @@ namespace Flare{
         void moveAbove();
         void leaveAbove();
 
+    private:
+        bool isPress;
+        bool isAbove;
+        bool isIcon;
+        Icon* buttonIcon;
     };
 }
 

@@ -13,42 +13,16 @@ FlareUI库是一个基于Qt库扩展的UI库，是为了开发者减少使用Qss
 
 ## 功能特性
 
-1. 较为方便的 API<br>比如在编写程序时不必要为了一些繁琐的操作去重写控件，只需要写一段代码
-
-注：目前FlareWindow类已被删除，将来可能会写一个其他风格的窗口
-
-   ```cpp
-   #include "FlareWindow.h"
-   #include "PushButton.h"
-   #include <QApplication>
-   int main(int argc, char* argv[]) {
-   	Q_INIT_RESOURCE(FlareWindow);
-   	QApplication a(argc, argv);
-   	Flare::FlareWindow MainWindow;
-   	Flare::PushButton button("Hello Falre!", &MainWindow);
-   	MainWindow.resize(200, 200);
-   	button.move(40,90);
-   	button.resize(120, 20);
-   	MainWindow.show();
-   	return a.exec();
-   }
-   ```
-
-   便可以实现
-
-   ![窗口代码](assets/MainWindow.png)
-
-   
-
-2. 基于Mac的风格，一般实现一种风格需要编写很多代码，这里我将其实现了出来，你只需要new就可以享受成果了
+1. 较为方便的 API<br>比如在编写程序时不必要为了一些繁琐的操作去重写控件，只需要写一段代码<br>我们封装了一些颜色，以便于快速开发，无需重载paintEvent去绘制
+2. 美观和一致性<br>UI大部分控件都采用圆角矩形，让本库的主风格更加现代化以及美观<br>当然如果不喜欢圆角矩形可以通过设置将其设置为非圆角矩形
 
 ## 开发环境
 
-使用的是 **Qt6.6.0** 当然这不是很重要，因为代码并没有用到新版本的特性，这是基于QtWidget的，我对于qml不太熟悉所以没搞
+使用的是 **Qt6.6.0 Cpp17** 当然这不是很重要，因为代码并没有用到新版本的特性，这是基于QtWidget的，我对于qml不太熟悉所以没搞
 
 ## 安装指南
 
-这个晚些,我写了半天的Bug还没修复
+这个就算了吧我自己都没太明白咋搞，你git下去之后自己看看cmake里面有啥要修改的就改了<br>一般要改的也就那么几个路径，改完之后直接构建就可以了，之后的流程都是一样的所以我就不多说了
 
 ## 使用示例
 
@@ -89,6 +63,6 @@ FlareUI库是一个基于Qt库扩展的UI库，是为了开发者减少使用Qss
 
 ## 相关资源
 
-我的博客：[zjhzzy](zjhzzy.github.io)
+我的博客：[zjhzzy](https://zjhzzy.github.io)
 
 我会在上面发布一些关于这个库的进展以及一些示例
