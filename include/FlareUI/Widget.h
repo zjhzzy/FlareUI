@@ -7,8 +7,6 @@
 #include <QtGui/QFocusEvent>
 #include "FlareColor.h"
 
-typedef float_t f32;
-
 namespace Flare {
 	class FLARE_EXPORT Widget : public QWidget {
 		Q_OBJECT

@@ -34,6 +34,9 @@ set(SOURCES
         src/SystemIcon.cpp
         src/ProgressBar.cpp
         src/RadioButton.cpp
+        src/Menu.cpp
+        src/ImageBox.cpp
+        src/TextBox.cpp
         include/FlareUI/BaseButton.h
         include/FlareUI/PushButton.h
         include/FlareUI/ListView.h
@@ -41,7 +44,11 @@ set(SOURCES
         include/FlareUI/FlareColor.h
         include/FlareUI/SystemIcon.h
         include/FlareUI/ProgressBar.h
-        include/FlareUI/RadioButton.h include/FlareUI/Menu.h src/Menu.cpp)
+        include/FlareUI/RadioButton.h
+        include/FlareUI/Menu.h
+        include/FlareUI/ImageBox.h
+        include/FlareUI/TextBox.h
+        include/FlareUI/flare_global.h)
 
 # 生成静态库目标
 add_library(Flare STATIC ${SOURCES})

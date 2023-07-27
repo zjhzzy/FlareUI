@@ -31,6 +31,7 @@ Flare::RadioButton::Color Flare::RadioButton::Color::setAllBrushColor(const QCol
     buttonBrushColor = color;
     buttonBrushHoverColor = color;
     buttonBrushPressedColor = color;
+    buttonBrushDisabledColor = color;
     return *this;
 }
 
@@ -38,12 +39,22 @@ Flare::RadioButton::Color Flare::RadioButton::Color::setAllPenColor(const QColor
     buttonPenColor = color;
     buttonPenHoverColor = color;
     buttonPenPressedColor = color;
+    buttonPenDisabledColor = color;
     return *this;
 }
 
 void Flare::RadioButton::paintEvent(QPaintEvent *event) {
     Q_UNUSED(event)
     QPainter painter(this);
+
+    if(isEnabled()) {
+        painter.setPen(QPen(buttonColor->buttonPenDisabledColor, penWidget));
+        painter.setBrush(buttonColor->buttonBrushDisabledColor);
+        painter.drawEllipse(1, 1, width() - 2, height() - 2);
+        painter.drawPixmap(0, 0, ButtonPressedIcon().pixmap(iconSize()));
+        painter.end();
+        return;
+    }
 
     if (isChecked()) {
         painter.setPen(QPen(buttonColor->buttonPenPressedColor, penWidget));

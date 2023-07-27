@@ -4,6 +4,10 @@
 #include <QtGui/QColor>
 #include "flare_global.h"
 
+typedef float_t f32;
+typedef int32_t i32;
+typedef int16_t i16;
+
 struct FLARE_EXPORT FlareColor {
 	static const QColor BlueLight;
 	static const QColor BlueDark;

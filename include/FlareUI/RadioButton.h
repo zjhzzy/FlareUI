@@ -26,9 +26,11 @@ namespace Flare {
             QColor buttonBrushColor;
             QColor buttonBrushHoverColor;
             QColor buttonBrushPressedColor;
+            QColor buttonBrushDisabledColor;
             QColor buttonPenColor;
             QColor buttonPenHoverColor;
             QColor buttonPenPressedColor;
+            QColor buttonPenDisabledColor;
 
             Color setAllColor(const QColor &color);
 

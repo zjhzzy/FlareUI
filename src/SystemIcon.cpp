@@ -44,9 +44,7 @@ void SystemIcon::showMenu() {
         // 检查是否超出屏幕边界 - 下方
         bool isExceedingBoundaryOnBottom =
                 point.y() + iconMenu->height() >= QApplication::primaryScreen()->geometry().height();
-
         iconMenu->show();
-
         // 1 1
         if(isExceedingBoundaryOnRight and isExceedingBoundaryOnBottom)
             iconMenu->move(point.x()-iconMenu->width(),point.y()-iconMenu->height());
