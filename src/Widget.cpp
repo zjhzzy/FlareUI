@@ -2,10 +2,10 @@
 
 void Flare::Widget::paintEvent(QPaintEvent* Event) {
 	QPainter painter(this);
-	painter.setPen(WidgetColor());
-	painter.setBrush(WidgetColor());
+	painter.setPen(BackColor());
+	painter.setBrush(BackColor());
 	painter.setRenderHint(QPainter::Antialiasing, true);
-	painter.drawRoundedRect(1, 1, width() - 2, height() - 2, XRadius(), YRadius(), Qt::RelativeSize);
+	painter.drawRoundedRect(1, 1, width() - 2, height() - 2, XRadius(), YRadius(), Qt::AbsoluteSize);
 	painter.end();
 }
 
@@ -30,7 +30,7 @@ void Flare::Widget::mouseReleaseEvent(QMouseEvent* Event) {
 }
 
 Flare::Widget::Widget(QWidget* parent)
-	: QWidget(parent), WidgetBackColor(new QColor(FlareColor::White)) {
+	: QWidget(parent), backColor(new QColor(FlareColor::White)) {
 	xRadius = 0;
 	yRadius = 0;
 	isAbove = false;
@@ -38,7 +38,7 @@ Flare::Widget::Widget(QWidget* parent)
 
 Flare::Widget::~Widget(){
     qDebug() << "已经调用Widget析构函数";
-    delete WidgetBackColor;
+    delete backColor;
 }
 
 f32 Flare::Widget::XRadius() const {
@@ -49,8 +49,8 @@ f32 Flare::Widget::YRadius() const {
 	return yRadius;
 }
 
-QColor Flare::Widget::WidgetColor() {
-	return *WidgetBackColor;
+QColor Flare::Widget::BackColor() {
+	return *backColor;
 }
 
 void Flare::Widget::setxRadius(f32 Radius) {
@@ -66,7 +66,7 @@ void Flare::Widget::setRadius(f32 XRadius, f32 YRadius) {
 	yRadius = YRadius;
 }
 
-void Flare::Widget::setWidgetColor(const QColor& color) {
-	*WidgetBackColor = color;
+void Flare::Widget::setBackColor(const QColor& color) {
+	*backColor = color;
 }
 

@@ -48,10 +48,11 @@ set(SOURCES
         include/FlareUI/Menu.h
         include/FlareUI/ImageBox.h
         include/FlareUI/TextBox.h
-        include/FlareUI/flare_global.h)
+        include/FlareUI/flare_global.h
+        )
 
 # 生成静态库目标
-add_library(Flare STATIC ${SOURCES})
+add_library(Flare SHARED ${SOURCES})
 
 # 链接 Qt 库
 target_link_libraries(Flare PRIVATE

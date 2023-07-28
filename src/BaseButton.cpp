@@ -87,5 +87,10 @@ namespace Flare {
         buttonHoverIcon = QIcon();
         buttonPressedIcon = QIcon();
     }
-
+    BaseButton::BaseButton(const Flare::BaseButton &button) {
+        isPress = false;
+        isAbove = false;
+        isIcon = button.isIcon;
+        buttonIcon = button.buttonIcon;
+    }
 }

@@ -31,7 +31,7 @@ namespace Flare {
     }
 
     void ProgressBar::paintEvent(QPaintEvent *event) {
-        Q_UNUSED(event);
+        Widget::paintEvent(event);
         QPainter painter(this);
         painter.setPen(QPen(Color(), LineWidth()));
         painter.setBrush(Color());

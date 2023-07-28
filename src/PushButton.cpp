@@ -18,7 +18,7 @@ void Flare::PushButton::paintEvent(QPaintEvent *event) {
         }
     }
 
-    painter.drawRoundedRect(1, 1, width() - 2, height() - 2, XRadius(), YRadius(),Qt::RelativeSize);
+    painter.drawRoundedRect(1, 1, width() - 2, height() - 2, XRadius(), YRadius(),Qt::AbsoluteSize);
 
     f32 X = 0.f;
     f32 Y = 0.f;
@@ -188,4 +188,10 @@ Flare::PushButton::Color::Color(){
     buttonBackPenColor = QColor();
     buttonBackPenHoverColor = QColor();
     buttonBackPenPressedColor = QColor();
-};
+}
+
+Flare::PushButton::PushButton(const Flare::PushButton &button) : BaseButton(button) {
+    xRadius = button.xRadius;
+    yRadius = button.yRadius;
+    buttonColor = button.buttonColor;
+}

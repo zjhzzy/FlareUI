@@ -8,7 +8,7 @@
 Flare::ListView::ListView(QWidget *parent) :
         Widget(parent),
         WidgetList(new QList<QWidget *>()),
-        spacing(0), marginLeft(0), isScrollable(false),moveSpeed(20) {
+        spacing(0), marginLeft(0), isScrollable(false),moveSpeed(20),topMargin(0) {
 
 }
 
@@ -51,7 +51,7 @@ void Flare::ListView::setMarginLeft(const int &m) {
 void Flare::ListView::setPosition() {
     if(WidgetList->empty())
         return;
-    WidgetList->at(0)->move(MarginLeft(), 0);
+    WidgetList->at(0)->move(MarginLeft(), TopMargin());
     for (int i = 1; i != WidgetList->size(); ++i) {
         WidgetList->at(i)->move(MarginLeft(),
                                 WidgetList->at(i - 1)->y() + WidgetList->at(i - 1)->height() + Spacing());
@@ -96,7 +96,7 @@ void Flare::ListView::allWidgetMove(const int &n) {
     }
     if (n > 0) { // 向下
         // 如果 如果列表的第一个元素移动后坐标大于等于0就不移动
-        if (WidgetList->first()->y() + MoveSpeed() < 0) {
+        if (WidgetList->first()->y() + MoveSpeed() < TopMargin()) {
             for (const auto &item: *WidgetList)
                 item->move(item->x(), item->y() + MoveSpeed());
             // 如果移动后的位置大于0但是移动后的位置小于移动的距离便默认为显示不正常重置视图
@@ -114,4 +114,10 @@ void Flare::ListView::allWidgetMove(const int &n) {
         return;
     }
 }
+void Flare::ListView::setTopMargin(const int &i) {
+    topMargin = i;
+}
 
+int Flare::ListView::TopMargin() const {
+    return topMargin;
+}
